@@ -5,6 +5,8 @@ import ProductList from "@/components/product-list";
 import Container from "@/components/ui/container";
 import NoResult from "@/components/ui/no-result";
 import ProductCard from "@/components/ui/product-card";
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
 
 interface CategoryPageProps {
   params: {
