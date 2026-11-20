@@ -3,6 +3,7 @@ import getProducts from "@/actions/get-products";
 import Banner from "@/components/banner";
 import ProductList from "@/components/product-list";
 import Container from "@/components/ui/container";
+export const dynamic = "force-dynamic";
 export const revalidate = 0;
 
 const HomePage = async () => {
