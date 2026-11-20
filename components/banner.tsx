@@ -11,7 +11,7 @@ const Banner: React.FC<BannerProps> = ({ data }) => {
         className="rounded-xl relative aspect-[16/9] sm:aspect-[2/1] md:aspect-[2.4/1] overflow-hidden bg-cover bg-center bg-neutral-200"
         style={{ backgroundImage: `url(${data?.imageUrl})` }}
       >
-        <div className="h-full w-full flex flex-col justify-center items-center text-center bg-black/25 px-4">
+        <div className="h-full w-full flex flex-col justify-center items-center text-center px-4">
           <p className="font-bold text-white text-xl sm:text-3xl md:text-5xl lg:text-6xl max-w-xs sm:max-w-xl tracking-tight">
             {data?.label}
           </p>
