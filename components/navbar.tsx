@@ -12,7 +12,7 @@ const Navbar = async () => {
       <Container>
         <div className="relative flex px-4 sm:px-6 lg:px-8 h-16 items-center">
           <Link href="/" className="ml-4 flex lg:ml-8 gap-x-2">
-            <p className="font-bold text-xl">PrimeGadget</p>
+            <p className="font-bold text-xl">TeknoMart</p>
           </Link>
           <MainNav data={categories} />
         </div>
