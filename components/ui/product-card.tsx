@@ -34,30 +34,36 @@ const ProductCard: React.FC<ProductCardProps> = ({ data }) => {
     <div
       onClick={handleClick}
       onMouseEnter={handleMouseEnter}
-      className="bg-white group cursor-pointer rounded-xl border p-4 space-y-4"
+      className="bg-white group cursor-pointer rounded-xl border p-3 sm:p-4 flex flex-col justify-between space-y-3"
     >
-      <div className="aspect-square rounded-xl bg-gray-100 relative">
-        <Image
-          src={data?.images?.[0]?.url}
-          alt={data?.name || "Product image"}
-          sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 25vw"
-          className="aspect-square object-cover rounded-md"
-          fill
-        />
-        <div className="opacity-0 group-hover:opacity-100 transition absolute w-full px-6 bottom-5">
-          <div className="flex gap-x-6 justify-center">
-            <IconButton
-              onclick={onPreview}
-              icon={<Expand size={20} className="text-gray-600" />}
-            />
+      <div className="space-y-3">
+        <div className="aspect-square rounded-xl bg-gray-100 relative overflow-hidden">
+          <Image
+            src={data?.images?.[0]?.url}
+            alt={data?.name || "Product image"}
+            sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+            className="aspect-square object-cover rounded-md"
+            fill
+          />
+          <div className="opacity-0 group-hover:opacity-100 transition absolute w-full px-4 bottom-3 hidden sm:block">
+            <div className="flex gap-x-4 justify-center">
+              <IconButton
+                onclick={onPreview}
+                icon={<Expand size={18} className="text-gray-600" />}
+              />
+            </div>
           </div>
         </div>
+        <div>
+          <p className="font-semibold text-sm sm:text-base line-clamp-2">
+            {data.name}
+          </p>
+          <p className="text-xs sm:text-sm text-gray-500 truncate">
+            {data.category.name}
+          </p>
+        </div>
       </div>
-      <div>
-        <p className="font-semibold text-lg">{data.name}</p>
-        <p className="text-sm text-gray-500">{data.category.name}</p>
-      </div>
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between text-sm sm:text-base">
         <Currency values={data?.price} />
       </div>
     </div>
