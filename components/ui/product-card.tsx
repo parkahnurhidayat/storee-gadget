@@ -21,21 +21,26 @@ const ProductCard: React.FC<ProductCardProps> = ({ data }) => {
     route.push(`/product/${data?.id}`);
   };
 
+  const handleMouseEnter = () => {
+    route.prefetch(`/product/${data?.id}`);
+  };
+
   const onPreview: MouseEventHandler<HTMLButtonElement> = (event) => {
     event.stopPropagation();
-
     previewModal.onOpen(data);
   };
 
   return (
     <div
       onClick={handleClick}
+      onMouseEnter={handleMouseEnter}
       className="bg-white group cursor-pointer rounded-xl border p-4 space-y-4"
     >
       <div className="aspect-square rounded-xl bg-gray-100 relative">
         <Image
           src={data?.images?.[0]?.url}
-          alt=""
+          alt={data?.name || "Product image"}
+          sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 25vw"
           className="aspect-square object-cover rounded-md"
           fill
         />
@@ -49,8 +54,8 @@ const ProductCard: React.FC<ProductCardProps> = ({ data }) => {
         </div>
       </div>
       <div>
-        <p className="font-semibold text-lg'">{data.name}</p>
-        <p className="text-sm text-gray-500'">{data.category.name}</p>
+        <p className="font-semibold text-lg">{data.name}</p>
+        <p className="text-sm text-gray-500">{data.category.name}</p>
       </div>
       <div className="flex items-center justify-between">
         <Currency values={data?.price} />
